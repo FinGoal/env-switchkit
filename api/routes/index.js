@@ -4,7 +4,6 @@ import {
   getAccounts,
   exchangeForPublicToken,
   getTransactions,
-  createLinkMoneyToken
 } from '../methods';
 import fs from "fs";
 import path from "path";
