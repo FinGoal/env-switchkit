@@ -123,7 +123,3 @@ function getThirtyDayTimeBracket() {
 
   return { start_date: thirtyDaysAgo, end_date: today };
 }
-
-export const createLinkMoneyToken = async (req, res, next) => {
-
-}
