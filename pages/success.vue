@@ -96,17 +96,6 @@ export default {
 
   },
   methods: {
-    async handleError(error) {
-      let fullError = `${error}`;
-      try {
-        const response = await axios.get("/api/link-money/transactions");
-        const { data } = response;
-        this.transactions.push(...data.transactions);
-        // this.accounts.push(...data.accounts);
-      } catch(error) {
-        console.log(error);
-      }
-    },
     async getItem() {
       const { public_token } = this.$store.state.plaidMeta;
       if (!public_token) {
