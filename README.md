@@ -94,7 +94,7 @@ In the demo application, it makes the most sense to add this code to a backend r
 - Replace `(const { userId, itemId } = options;)`
 
 ```jsx
-export const getLinkMoneyToken = async (req, res, next) => {
+export const createLinkMoneyToken = async (req, res, next) => {
 	try {
 			const { body } = req;
 	    const { userId, itemId } = body;
@@ -137,7 +137,7 @@ export const getLinkMoneyToken = async (req, res, next) => {
 
 The code above adapts the original token function into an Express.js controller, which will be accessible from the front end demo application. The above code also adds the credentials from our `env` file, so that they can be accessed securely from the backend. 
 
-Now we only need to add a route to access this method, by altering `/api/routes/index.js`. Add `getLinkMoneyToken` to the import list from `../methods`:  
+Now we only need to add a route to access this method, by altering `/api/routes/index.js`. Add `createLinkMoneyToken` to the import list from `../methods`:  
 
 ```jsx
 import {
@@ -145,14 +145,14 @@ import {
   getAccounts,
   exchangeForPublicToken,
   getTransactions,
-	getLinkMoneyToken
+	createLinkMoneyToken
 } from '../methods';
 ```
 
 And in the same file, create the route: 
 
 ```jsx
-router.post("/link-money-token", getLinkMoneyToken);
+router.post("/link-money-token", createLinkMoneyToken);
 ```
 
 This is all we need to do to make the Link Money authentication token available to the frontend of the demo application!
